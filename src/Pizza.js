@@ -121,6 +121,15 @@ const Form = () => {
                     id="extra cheese"
                     type="checkbox"
                 />
+            
+            <h3>Special Instructions</h3>
+            <label htmlFor="instructions" />
+                <textarea
+                    id=""
+                    placeholder="Anything else you'd like to add?"
+                />
+            
+            <button className="button" type="button">Add to Order</button>
         </form>
     )
 }
