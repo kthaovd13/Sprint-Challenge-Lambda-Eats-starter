@@ -1,10 +1,43 @@
 import React, { useState } from "react"
+import styled from "styled-components"
+import * as yup from "yup"
+
+const Information = styled.div`
+  background-color: #282c34;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: coral;
+`
 
 const Form = () => {
-    const [pizza, setPizza] = useState ()
+    const [formState, setFormState] = useState ({})
+
+    const formSubmit = e => {
+        e.preventDefault()
+    }
+
+    const inputChange = e => {
+        setFormState({ name: e.target.value })
+    }
+
+    const formSchema = yup.object().shape({
+        name: yup.string().min(2).required("Name is a required field"),
+        instructions: yup.string() 
+    })
 
     return (
-        <form>
+        <form onSubmit ={formSubmit}>
+            <Information>
+            <h1>Pizza Selector</h1>
+            <label htmlFor="customer">Who is this pizza for?</label>
+                <textarea
+                    id="customer"
+                    placeholder="Name?"
+                />
             <h3>Choice of Size</h3>
             <h5>Required</h5>
                 <label htmlFor="size" />
@@ -21,6 +54,7 @@ const Form = () => {
                     <input
                         id="original red"
                         type="radio"
+                        name="orginal red"
                     />
                     <label htmlFor="original red">Original Red</label>
                 </div>
@@ -29,6 +63,7 @@ const Form = () => {
                     <input
                         id="garlic ranch"
                         type="radio"
+                        name="garlic ranch"
                     />
                     <label htmlFor="garlic ranch">Garlic Ranch</label>
                 </div>
@@ -37,6 +72,7 @@ const Form = () => {
                     <input
                         id="bbq sauce"
                         type="radio"
+                        name="bbq sauce"
                     />
                     <label htmlFor="bbq sauce">BBQ Sauce</label>
                 </div>
@@ -45,12 +81,13 @@ const Form = () => {
                     <input
                         id="spinach alfredo"
                         type="radio"
+                        name="spinach alfredo"
                     />
                     <label htmlFor="spinach alfredo">Spinach Alfredo</label>
                 </div>
 
             <h3>Select Toppings</h3>
-            <h5>Choose up to 10.</h5>
+            <h5>Choose up to 4.</h5>
                 <label htmlFor="pepperoni" className="allToppings">Pepperoni</label>
                 <input
                     id="pepperoni"
@@ -71,65 +108,16 @@ const Form = () => {
                     id="spicy italian"
                     type="checkbox"
                 />
-                <label htmlFor="grilled chicken" className="allToppings">Grilled Chicken</label>
-                <input
-                    id="grilled chicken"
-                    type="checkbox"
-                />
-                <label htmlFor="onions" className="allToppings">Onions</label>
-                <input
-                    id="onions"
-                    type="checkbox"
-                />
-                <label htmlFor="green pepper" className="allToppings">Green Pepper</label>
-                <input
-                    id="green pepper"
-                    type="checkbox"
-                />
-                <label htmlFor="diced tomatoes" className="allToppings">Diced Tomatoes</label>
-                <input
-                    id="diced tomatoes"
-                    type="checkbox"
-                />
-                <label htmlFor="black olives" className="allToppings">Black Olives</label>
-                <input
-                    id="black olives"
-                    type="checkbox"
-                />
-                <label htmlFor="roasted garlic" className="allToppings">Roasted Garlic</label>
-                <input
-                    id="roasted garlic"
-                    type="checkbox"
-                />
-                <label htmlFor="artichoke hearts" className="allToppings">Artichoke Hearts</label>
-                <input
-                    id="artichoke hearts"
-                    type="checkbox"
-                />
-                <label htmlFor="three cheese" className="allToppings">Three Cheese</label>
-                <input
-                    id="three cheese"
-                    type="checkbox"
-                />
-                <label htmlFor="pineapple" className="allToppings">Pineapple</label>
-                <input
-                    id="pineapple"
-                    type="checkbox"
-                />
-                <label htmlFor="extra cheese" className="allToppings">Extra Cheese</label>
-                <input
-                    id="extra cheese"
-                    type="checkbox"
-                />
             
             <h3>Special Instructions</h3>
             <label htmlFor="instructions" />
                 <textarea
-                    id=""
+                    id="instructions"
                     placeholder="Anything else you'd like to add?"
                 />
             
             <button className="button" type="button">Add to Order</button>
+            </Information>
         </form>
     )
 }
