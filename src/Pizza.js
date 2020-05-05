@@ -72,7 +72,7 @@ const Form = () => {
     }
 
     const formSchema = yup.object().shape({
-        customer: yup.string().required("Name is a required field"),
+        customer: yup.string().min(2).required("Name is a required field"),
         size: yup.string().required("Size selection is required"),
         sauce: yup.string().oneOf(["original", "garlic", "bbq", "spinach"]).required(),
         pepperoni: yup.boolean(),
