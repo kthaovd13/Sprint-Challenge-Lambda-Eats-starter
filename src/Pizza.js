@@ -114,12 +114,13 @@ const Form = () => {
                     name="customer"
                     onChange={inputChange}
                     value={formState.customer}
+                    data-cy="customer"
                 />
 
                 <h3>Choice of Size</h3>
                     <h5>Required</h5>
                         <label htmlFor="size" />
-                        <select id="size" name="size" onChange={inputChange} value={formState.size}>
+                        <select id="size" name="size" onChange={inputChange} value={formState.size} data-cy="size">
                             <option value="">--Please choose a size--</option>
                             <option value="small">Small</option>
                             <option value="medium">Medium</option>
@@ -135,6 +136,7 @@ const Form = () => {
                             name="sauce"
                             onChange={inputChange}
                             value="original"
+                            data-cy="sauce"
                         />
                         <label htmlFor="original red">Original Red</label>
                     </div>
@@ -146,6 +148,7 @@ const Form = () => {
                             name="sauce"
                             onChange={inputChange}
                             value="garlic"
+                            data-cy="sauce"
                         />
                         <label htmlFor="garlic ranch">Garlic Ranch</label>
                     </div>
@@ -157,6 +160,7 @@ const Form = () => {
                             name="sauce"
                             onChange={inputChange}
                             value="bbq"
+                            data-cy="sauce"
                         />
                         <label htmlFor="bbq sauce">BBQ Sauce</label>
                     </div>
@@ -168,6 +172,7 @@ const Form = () => {
                             name="sauce"
                             onChange={inputChange}
                             value="spinach"
+                            data-cy="sauce"
                         />
                         <label htmlFor="spinach alfredo">Spinach Alfredo</label>
                     </div>
@@ -181,6 +186,7 @@ const Form = () => {
                             name="pepperoni"
                             onChange={inputChange}
                             value={formState.toppings}
+                            data-cy="pepperoni"
                         />
                         <label htmlFor="sausage" className="allToppings">Sausage</label>
                         <input
@@ -189,6 +195,7 @@ const Form = () => {
                             name="sausage"
                             onChange={inputChange}
                             value={formState.toppings}
+                            data-cy="sausage"
                         />
                         <label htmlFor="canadian" className="allToppings">Canadian Bacon</label>
                         <input
@@ -197,6 +204,7 @@ const Form = () => {
                             name="canadian"
                             onChange={inputChange}
                             value={formState.toppings}
+                            data-cy="canadian"
                         />
                         <label htmlFor="italian" className="allToppings">Spicy Italian Sausage</label>
                         <input
@@ -205,6 +213,7 @@ const Form = () => {
                             name="italian"
                             onChange={inputChange}
                             value={formState.toppings}
+                            data-cy="italian"
                         />
             
             <h3>Special Instructions</h3>
@@ -215,6 +224,7 @@ const Form = () => {
                     name="instructions"
                     onChange={inputChange}
                     value={formState.instructions}
+                    data-cy="instructions"
                 />
             <pre>{JSON.stringify(post, null, 2)}</pre>
         <button disabled={isButtonDisabled} className="button" type="submit">Add to Order</button>
