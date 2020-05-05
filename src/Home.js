@@ -18,7 +18,7 @@ function Home () {
             <h1> Your favorite food, delivered while coding</h1>
                 <p>Pizza?</p>
             
-            <img alt="pizza" src="src\Assets\Pizza.jpg" />
+            <img alt="pizza" src="src\Pizza.jpg" />
         </Header>
     )
 }
